@@ -1,0 +1,8 @@
+stripeConnectInstance.update({
+  appearance: {
+    variables: {
+      colorPrimary: "#FF0000",
+    },
+  },
+  locale: 'en-US',
+});
