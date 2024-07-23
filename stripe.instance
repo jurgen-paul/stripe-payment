@@ -1,0 +1,14 @@
+import { loadConnectAndInitialize } from "@stripe/connect-js";
+// Example method to retrieve the client secret from your server
+const fetchClientSecret = async () => {
+  const response = await fetch('/account_session');
+  const {client_secret: clientSecret} = await response.json();
+  return clientSecret;
+}
+
+const stripeConnectInstance = loadConnectAndInitialize({
+  publishableKey: "pk_test_51N8QO3JE2alzfsnTGoPaXCrU5bxZTAEnToWFxlbskfFSjnuyuwl3LZGMzud6N0VjV0YGiURL1d0IOfDGzcPybciH00hbtyKzhx",
+  fetchClientSecret: fetchClientSecret,
+});
+// Call this when your user logs out
+stripeConnectInstance.logout();
