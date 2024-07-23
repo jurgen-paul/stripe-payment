@@ -1,0 +1,4 @@
+import stripe
+stripe.api_key = "sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1"
+
+stripe.Account.retrieve("acct_1Nv0FGQ9RKHgCVdK")
