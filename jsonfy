@@ -1,0 +1,29 @@
+import stripe
+# This is your test secret API key.
+stripe.api_key = 'sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1'
+
+from flask import Flask, jsonify
+app = Flask(__name__)
+
+@app.route('/account_session', methods=['POST'])
+def account_session_handler():
+    try:
+        account_session = stripe.AccountSession.create(
+          account={{CONNECTED_ACCOUNT_ID}},
+          components={
+            "payments": {
+              "enabled": True,
+              "features": {
+                "refund_management": True,
+                "dispute_management": True,
+                "capture_payments": True
+              }
+            },
+          },
+        )
+        return jsonify({
+          'client_secret': account_session.client_secret,
+        })
+    except Exception as e:
+        print('An error occurred when calling the Stripe API to create an account session: ', e)
+        return jsonify(error=str(e)), 500
