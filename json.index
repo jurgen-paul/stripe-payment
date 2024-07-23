@@ -1,0 +1,27 @@
+const fetchClientSecret = async () => {
+  const response = await fetch('/account_session');
+  const {client_secret: clientSecret} = await response.json();
+  return clientSecret;
+}
+
+const stripeConnectInstance = loadConnectAndInitialize({
+  publishableKey: "pk_test_51N8QO3JE2alzfsnTGoPaXCrU5bxZTAEnToWFxlbskfFSjnuyuwl3LZGMzud6N0VjV0YGiURL1d0IOfDGzcPybciH00hbtyKzhx",
+  fetchClientSecret: fetchClientSecret,
+  fonts: [
+    {
+      cssSrc: "https://myfonts.example.com/mycssfile.css",
+    },
+    {
+      src: `url(https://my-domain.com/assets/my-font-2.woff)`,
+      family: 'My Font'
+    }
+  ],
+  appearance: {
+    // See all possible variables below
+    overlays: "dialog",
+    variables: {
+      fontFamily: 'My Font',
+      colorPrimary: "#FF0000",
+    },
+  },
+});
