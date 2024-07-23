@@ -1,0 +1,77 @@
+import stripe
+stripe.api_key = "sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1"
+
+stripe.Charge.create(
+  amount=1099,
+  currency="usd",
+  source="tok_visa",
+)
+import stripe
+stripe.api_key = "sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1"
+
+stripe.Charge.modify(
+  "ch_3MmlLrLkdIwHu7ix0snN0B15",
+  metadata={"shipping": "express"},
+)
+import stripe
+stripe.api_key = "sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1"
+
+stripe.Charge.retrieve("ch_3MmlLrLkdIwHu7ix0snN0B15")
+import stripe
+stripe.api_key = "sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1"
+
+stripe.Charge.list(limit=3)
+import stripe
+stripe.api_key = "sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1"
+
+stripe.Charge.capture("ch_3MrVHGLkdIwHu7ix1mN3zEiP")
+import stripe
+stripe.api_key = "sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1"
+
+stripe.Charge.search(query="amount>999 AND metadata['order_id']:'6735'") 
+POST
+/v1/customers
+POST
+/v1/customers/:id
+GET
+/v1/customers/:id
+GET
+/v1/customers
+DELETE
+/v1/customers/:id
+GET
+/v1/customers/search
+# Set your secret key. Remember to switch to your live secret key in production.
+# See your keys here: https://dashboard.stripe.com/apikeys
+import stripe
+stripe.api_key = "sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1"
+
+stripe.Customer.create(
+  name="Jenny Rosen",
+  email="jennyrosen@example.com",
+)
+import stripe
+stripe.api_key = "sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1"
+
+stripe.Customer.modify(
+  "cus_NffrFeUfNV2Hib",
+  metadata={"order_id": "6735"},
+)
+import stripe
+stripe.api_key = "sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1"
+
+stripe.Customer.retrieve("cus_NffrFeUfNV2Hib")
+import stripe
+stripe.api_key = "sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1"
+
+stripe.Customer.list(limit=3)
+import stripe
+stripe.api_key = "sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1"
+
+stripe.Customer.delete("cus_NffrFeUfNV2Hib")
+import stripe
+stripe.api_key = "sk_test_51N8QO3JE2alzfsnTP44zF0HwoB7frH0tOnLta5XnBZrf2bn4tpm2g4qnBTsp62bOd4zFAT4isFcZm5EP7cqweAGc004jE41XY1"
+
+stripe.Customer.search(query="name:'Jane Doe' AND metadata['foo']:'bar'")
+POST
+/v1/customer_sessions
