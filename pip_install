@@ -1,0 +1,1 @@
+pip3 install stripe==8.9.0
