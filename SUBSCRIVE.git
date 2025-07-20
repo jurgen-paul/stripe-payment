@@ -1,0 +1,20 @@
+const stripe = require('stripe')('your_secret_key'); // Replace with your Stripe secret key
+
+async function createSubscription(customerId, priceId) {
+  try {
+    const subscription = await stripe.subscriptions.create({
+      customer: customerId,
+      items: [{ price: priceId }],
+      metadata: { organization_id: 'org_6RsNhnGbSQ3s7rFPAoYfQjA' },
+    });
+    console.log('Subscription created:', subscription.id);
+  } catch (error) {
+    console.error('Error creating subscription:', error);
+  }
+}
+
+// Example usage
+const customerId = 'cus_xxxxxxxxxxxxx'; // Replace with your customer ID
+const priceId = 'price_xxxxxxxxxxxxx'; // Replace with your price ID
+
+createSubscription(customerId, priceId);
